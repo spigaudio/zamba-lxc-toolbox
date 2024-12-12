@@ -59,14 +59,14 @@ sed -i "s/pm.min_spare_servers =.*/pm.min_spare_servers = 6/" /etc/php/$NEXTCLOU
 sed -i "s/pm.max_spare_servers =.*/pm.max_spare_servers = 18/" /etc/php/$NEXTCLOUD_PHP_VERSION/fpm/pool.d/www.conf
 sed -i "s/;pm.max_requests =.*/pm.max_requests = 1000/" /etc/php/$NEXTCLOUD_PHP_VERSION/fpm/pool.d/www.conf
 sed -i "s/allow_url_fopen =.*/allow_url_fopen = 1/" /etc/php/$NEXTCLOUD_PHP_VERSION/fpm/php.ini
-sed -i "s/output_buffering =.*/output_buffering = 'Off'/" /etc/php/$NEXTCLOUD_PHP_VERSION/cli/php.ini
+sed -i "s/output_buffering =.*/output_buffering = Off/" /etc/php/$NEXTCLOUD_PHP_VERSION/cli/php.ini
 sed -i "s/max_execution_time =.*/max_execution_time = 3600/" /etc/php/$NEXTCLOUD_PHP_VERSION/cli/php.ini
 sed -i "s/max_input_time =.*/max_input_time = 3600/" /etc/php/$NEXTCLOUD_PHP_VERSION/cli/php.ini
 sed -i "s/post_max_size =.*/post_max_size = 10240M/" /etc/php/$NEXTCLOUD_PHP_VERSION/cli/php.ini
 sed -i "s/upload_max_filesize =.*/upload_max_filesize = 10240M/" /etc/php/$NEXTCLOUD_PHP_VERSION/cli/php.ini
 sed -i "s|;date.timezone.*|date.timezone = $LXC_TIMEZONE|" /etc/php/$NEXTCLOUD_PHP_VERSION/cli/php.ini
 sed -i "s/memory_limit = 128M/memory_limit = 1024M/" /etc/php/$NEXTCLOUD_PHP_VERSION/fpm/php.ini
-sed -i "s/output_buffering =.*/output_buffering = 'Off'/" /etc/php/$NEXTCLOUD_PHP_VERSION/fpm/php.ini
+sed -i "s/output_buffering =.*/output_buffering = Off/" /etc/php/$NEXTCLOUD_PHP_VERSION/fpm/php.ini
 sed -i "s/max_execution_time =.*/max_execution_time = 3600/" /etc/php/$NEXTCLOUD_PHP_VERSION/fpm/php.ini
 sed -i "s/max_input_time =.*/max_input_time = 3600/" /etc/php/$NEXTCLOUD_PHP_VERSION/fpm/php.ini
 sed -i "s/post_max_size =.*/post_max_size = 10240M/" /etc/php/$NEXTCLOUD_PHP_VERSION/fpm/php.ini
