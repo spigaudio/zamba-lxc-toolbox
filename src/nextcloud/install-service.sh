@@ -435,6 +435,8 @@ php /var/www/nextcloud/occ app:enable admin_audit
 php /var/www/nextcloud/occ app:enable notify_push
 php /var/www/nextcloud/occ app:enable files_pdfviewer
 php /var/www/nextcloud/occ background:cron
+php /var/www/nextcloud/occ maintenance:repair --include-expensive
+php /var/www/nextcloud/occ db:add-missing-indices
 DFOE
 
 /root/permissions.sh
