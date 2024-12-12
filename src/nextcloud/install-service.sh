@@ -156,8 +156,9 @@ EOF
 
 cat > /etc/nginx/conf.d/nextcloud.conf << EOF
 server {
-listen 443      ssl http2;
-listen [::]:443 ssl http2;
+listen 443 ssl;
+listen [::]:443 ssl;
+http2 on;
 server_name $NEXTCLOUD_FQDN;
 ssl_certificate /etc/ssl/certs/nextcloud.crt;
 ssl_certificate_key /etc/ssl/private/nextcloud.key;
