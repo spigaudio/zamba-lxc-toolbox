@@ -312,6 +312,12 @@ chmod +x /root/permissions.sh
 /root/permissions.sh
 
 #### install fail2ban ####
+mv /etc/fail2ban/jail.d/defaults-debian.conf /etc/fail2ban/jail.d/defaults-debian.conf.bak
+
+cat > /etc/fail2ban/fail2ban.local << EOF
+[DEFAULT]
+allowipv6 = auto
+EOF
 
 cat <<EOF >/etc/fail2ban/filter.d/nextcloud.conf
 [Definition]
@@ -362,7 +368,7 @@ sed -i '/);/d' /var/www/nextcloud/config/config.php
 cat >> /var/www/nextcloud/config/config.php << EOF
 'activity_expire_days' => 14,
 'auth.bruteforce.protection.enabled' => true,
-'blacklisted_files' => 
+'forbidden_filenames' => 
 array (
 0 => '.htaccess',
 1 => 'Thumbs.db',
@@ -389,7 +395,7 @@ array (
 'htaccess.RewriteBase' => '/',
 'integrity.check.disabled' => false,
 'knowledgebaseenabled' => false,
-'logfile' => '/var/$NEXTCLOUD_DATA/nextcloud.log',
+'logfile' => '/$LXC_SHAREFS_MOUNTPOINT/$NEXTCLOUD_DATA/nextcloud.log',
 'loglevel' => 2,
 'logtimezone' => '$LXC_TIMEZONE',
 'log_rotate_size' => 104857600,
@@ -418,6 +424,7 @@ array (
 '127.0.0.1',
 '::1',
 ),
+'maintenance_window_start' => 1,
 );
 EOF
 
